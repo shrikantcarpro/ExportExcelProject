@@ -65,7 +65,6 @@ namespace ExportToExcel
         public static bool CreateExcelDocument<T>(List<T> list, string xlsxFilePath)
         {
             DataSet ds = new DataSet();
-            DataSet ds2 = new DataSet();
             DataSet ds1 = new DataSet();
             ds.Tables.Add(ListToDataTable(list));
 
