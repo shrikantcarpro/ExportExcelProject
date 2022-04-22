@@ -66,6 +66,7 @@ namespace ExportToExcel
         {
             DataSet ds = new DataSet();
             DataSet ds2 = new DataSet();
+            DataSet ds1 = new DataSet();
             ds.Tables.Add(ListToDataTable(list));
 
             return CreateExcelDocument(ds, xlsxFilePath);
