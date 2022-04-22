@@ -1,0 +1,22 @@
+
+create table cmb_rpt_query 
+(
+rptno int  NOT NULL PRIMARY KEY,
+rptname varchar(100),
+rptquery varchar(8000)
+)
+go
+select car_make,model,name,CAR_GROUP from CAR_MODELS
+select car_make as carmake,model,name,CAR_GROUP from CAR_MODELS
+select rptno,rptname,rptquery from cmb_rpt_query
+
+delete from cmb_rpt_query
+insert into cmb_rpt_query
+values(
+1,'invoices amt','select i.invoice_no as InvoiceNo,i.invoice_type, convert(date,i.invoice_date,112) as invoice_date,
+case when i.inv_status=0 then ''cancelled'' else ''normal'' end as invoice_status,
+i.invoice_amount, i.AMOUNT_PID,i.balance,d.DEBITOR_NAME from invoices i(nolock) left outer join debitors d(nolock)
+on i.DEBITOR_NO=d.DEBITOR_CODE')
+insert into cmb_rpt_query
+values(
+2,'car_models','select car_make as carmake,model,name,CAR_GROUP from CAR_MODELS')
